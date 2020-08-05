@@ -14,4 +14,8 @@ It was made with sharing pictures of your children in mind, but can also be used
 - SQLite
 
 ## User stories
-TODO
+- As a user, I can register as a parent
+- As a user, I can create a child profile
+- As a user, I can add pictures to my child's profile
+- As a user, I can browse the pictures in my child's profile chronologically
+- As a user, I can invite other people to follow my child on the web app
