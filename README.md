@@ -13,9 +13,29 @@ It was made with sharing pictures of your children in mind, but can also be used
 - Bootstrap
 - SQLite
 
+## Features
+
+### v0.1 goals
+[ ] protect main page with a password (pass in env file)
+[ ] main page displays pictures in masonry-style, using [https://github.com/ademilter/bricklayer](bricklayer)
+
+
+### expansion goals
+[ ] allow users to register an account only using an email (passwordless)
+[ ] allow users to invite others to follow their gallery
+[ ] allow any user to upload new pictures directly from the webpage
+[ ] send a notification to all users that a new picture has been uploaded
+[ ] allow users to "heart" pictures
+[ ] allow users to comment on pictures
+
+
 ## User stories
+### v0.1
+- As a user, I can add pictures to my gallery
+- As a user, I can browse the pictures in my gallery chronologically
+
+
+### future
+- As a user, I can invite other people to follow my child on the web app
 - As a user, I can register as a parent
 - As a user, I can create a child profile
-- As a user, I can add pictures to my child's profile
-- As a user, I can browse the pictures in my child's profile chronologically
-- As a user, I can invite other people to follow my child on the web app
