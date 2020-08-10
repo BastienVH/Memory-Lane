@@ -17,7 +17,7 @@ It was made with sharing pictures of your children in mind, but can also be used
 
 ### v0.1 goals
 - [ ] protect main page with a password (pass in env file)
-- [ ] main page displays pictures from a database, using [masonry](https://masonry.desandro.com/)
+- [X] main page displays pictures from a folder, using [masonry](https://masonry.desandro.com/)
 
 
 ### expansion goals
@@ -28,14 +28,29 @@ It was made with sharing pictures of your children in mind, but can also be used
 - [ ] allow users to "heart" pictures
 - [ ] allow users to comment on pictures
 
+## Installation
 
-## User stories
-### v0.1
-- As a user, I can add pictures to my gallery
-- As a user, I can browse the pictures in my gallery chronologically
+1. Clone the repo:
+```
+git clone https://github.com/BastienVH/CS50x-Final-Project.git
+```
+2. Navigate to the folder in your CLI:
+```
+cd CS50x-Final-Project
+```
+3. Create a python 3 virtual environment:
+Windows: `py -3 -m venv venv`
+Linux: `python3 -m venv venv`
 
+4. Activate your virtual environment:
+Windows: `venv\Scripts\activate`
+Linux: `. venv/bin/activate`
 
-### future
-- As a user, I can invite other people to follow my child on the web app
-- As a user, I can register as a parent
-- As a user, I can create a child profile
+5. install the requirements with pip:
+```
+pip install -r requirements.txt
+```
+6. Run the program (only for testing):
+```
+flask run
+```
