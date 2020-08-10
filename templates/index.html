@@ -5,10 +5,10 @@
   <!-- add extra container element for Masonry -->
 <div class="grid">
   <!-- add sizing element for columnWidth -->
-  <div class="grid-sizer col-xs-12 col-sm-6 col-md-4"></div>
+  <div class="grid-sizer col-6 col-md-4 col-lg-3"></div>
   <!-- items use Bootstrap .col- classes -->
   {% for file in filenames %}
-  <div class="grid-item col-xs-12 col-sm-6 col-md-4">
+  <div class="grid-item col-6 col-md-4 col-lg-3">
     <div class="grid-item-content"><img src="static/uploads/{{ file }}"></div>
   </div>
   {% endfor %}
