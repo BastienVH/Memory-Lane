@@ -17,7 +17,7 @@ It was made with sharing pictures of your children in mind, but can also be used
 
 ### v0.1 goals
 - [ ] protect main page with a password (pass in env file)
-- [ ] main page displays pictures in masonry-style, using [bricklayer]([bricklayer](https://github.com/ademilter/bricklayer))
+- [ ] main page displays pictures from a database, using [masonry](https://masonry.desandro.com/)
 
 
 ### expansion goals
