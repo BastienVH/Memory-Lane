@@ -16,17 +16,17 @@ It was made with sharing pictures of your children in mind, but can also be used
 ## Features
 
 ### v0.1 goals
-[ ] protect main page with a password (pass in env file)
-[ ] main page displays pictures in masonry-style, using [https://github.com/ademilter/bricklayer](bricklayer)
+- [ ] protect main page with a password (pass in env file)
+- [ ] main page displays pictures in masonry-style, using [bricklayer]([bricklayer](https://github.com/ademilter/bricklayer))
 
 
 ### expansion goals
-[ ] allow users to register an account only using an email (passwordless)
-[ ] allow users to invite others to follow their gallery
-[ ] allow any user to upload new pictures directly from the webpage
-[ ] send a notification to all users that a new picture has been uploaded
-[ ] allow users to "heart" pictures
-[ ] allow users to comment on pictures
+- [ ] allow users to register an account only using an email (passwordless)
+- [ ] allow users to invite others to follow their gallery
+- [ ] allow any user to upload new pictures directly from the webpage
+- [ ] send a notification to all users that a new picture has been uploaded
+- [ ] allow users to "heart" pictures
+- [ ] allow users to comment on pictures
 
 
 ## User stories
