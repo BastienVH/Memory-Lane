@@ -9,6 +9,7 @@ def hello():
     for dirpath, dirs, files in walk("./static/uploads"):
         filenames.extend(files)
         break
+    filenames.remove("PUT_FILES_HERE")
     return render_template('index.html', filenames=filenames)
 
 @app.route('/upload', methods=["GET", "POST"])

@@ -2,3 +2,4 @@ __pycache__/
 venv/
 .vscode/
 static/uploads/*
+!static/uploads/PUT_FILES_HERE
