@@ -2,36 +2,32 @@
 
 {% block title %}Home{% endblock %}
 {% block body %}
-
-<div class="container-fluid">
   <!-- add extra container element for Masonry -->
-  <div class="grid">
-    <div class="grid-sizer col-xs-6 col-sm-4 col-md-3"></div>
-    <div class="grid-item col-xs-6 col-sm-8 col-md-6">
-      <!-- add inner element for column content -->
-      <div class="grid-item-content"><img src="static/uploads/493.jpg"></div>
-    </div>
-    <div class="grid-item col-xs-6 col-sm-8 col-md-6">
-      <div class="grid-item-content"><img src="static/uploads/497.jpg"></div>
-    </div>
-    <div class="grid-item col-xs-6 col-sm-4 col-md-3">
-      <div class="grid-item-content"><img src="static/uploads/502.jpg"></div>
-    </div>
-    <div class="grid-item col-xs-6 col-sm-4 col-md-3">
-      <div class="grid-item-content grid-item-content--height2"><img src="static/uploads/503.jpg"></div>
-    </div>
-    <div class="grid-item col-xs-6 col-sm-8 col-md-6">
-      <div class="grid-item-content"><img src="static/uploads/567.jpg"></div>
-    </div>
-    <div class="grid-item col-xs-6 col-sm-4 col-md-3">
-      <div class="grid-item-content grid-item-content--height2"><img src="static/uploads/IMG_20180701_095609.jpg"></div>
-    </div>
-    <div class="grid-item col-xs-6 col-sm-4 col-md-3">
-      <div class="grid-item-content"><img src="static/uploads/IMG_20180712_105107.jpg"></div>
-    </div>
-    <div class="grid-item col-xs-6 col-sm-4 col-md-3">
-      <div class="grid-item-content"><img src="static/uploads/497.jpg"></div>
-    </div>
+<div class="grid">
+  <!-- add sizing element for columnWidth -->
+  <div class="grid-sizer col-xs-6 col-sm-4 col-md-3"></div>
+  <!-- items use Bootstrap .col- classes -->
+  <div class="grid-item col-xs-6 col-sm-8 col-md-6">
+    <!-- add inner element for column content -->
+    <div class="grid-item-content"><img src="static/uploads/493.jpg"></div>
+  </div>
+  <div class="grid-item col-xs-6 col-sm-8 col-md-6">
+    <div class="grid-item-content"><img src="static/uploads/497.jpg"></div>
+  </div>
+  <div class="grid-item col-xs-6 col-sm-4 col-md-3">
+    <div class="grid-item-content"><img src="static/uploads/502.jpg"></div>
+  </div>
+  <div class="grid-item col-xs-6 col-sm-4 col-md-3">
+    <div class="grid-item-content grid-item-content--height2"><img src="static/uploads/503.jpg"></div>
+  </div>
+  <div class="grid-item col-xs-6 col-sm-8 col-md-6">
+    <div class="grid-item-content"><img src="static/uploads/567.jpg"></div>
+  </div>
+  <div class="grid-item col-xs-6 col-sm-4 col-md-3">
+    <div class="grid-item-content grid-item-content--height2"><img src="static/uploads/IMG_20180701_095609.jpg"></div>
+  </div>
+  <div class="grid-item col-xs-6 col-sm-4 col-md-3">
+    <div class="grid-item-content"><img src="static/uploads/IMG_20180712_105107.jpg"></div>
   </div>
 </div>
 {% endblock %}
