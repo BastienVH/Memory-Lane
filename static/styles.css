@@ -3,8 +3,12 @@
   border-radius: 5px;
 }
 
-.grid {
+#main-view {
   margin-top: 10px;
+}
+
+#file-picker {
+  margin-bottom: 15px;
 }
 
 /* clear fix */

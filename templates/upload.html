@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Upload{% endblock %}
+
+{% block body %}
+
+    <form action="/upload" method="post">
+        <div class="custom-file" id="file-picker">
+            <input id="file-input" type="file" class="custom-file-input" accept="image/*">
+            <label for="file-input" class="custom-file-label">Select picture</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Sumbit</button>
+    </form>
+
+{% endblock %}
