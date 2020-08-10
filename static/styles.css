@@ -3,6 +3,10 @@
   border-radius: 5px;
 }
 
+.grid {
+  margin-top: 10px;
+}
+
 /* clear fix */
 .grid:after {
   content: '';
