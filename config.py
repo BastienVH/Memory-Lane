@@ -1,3 +1,11 @@
+"""Flask config."""
+from os import environ, path
+from dotenv import load_dotenv
+
+basedir = path.abspath(path.dirname(__file__))
+load_dotenv(path.join(basedir, '.env'))
+
+
 class Config(object):
     DEBUG = False
     TESTING = False
@@ -5,8 +13,8 @@ class Config(object):
     DB_NAME = "production-db"
     DB_USERNAME = "admin"
     DB_PASSWORD = "example"
-    FILE_UPLOADS = "./static/uploads"
     SESSION_COOKIE_SECURE = True
+    FILE_UPLOADS = './static/uploads'
 
 class ProductionConfig(Config):
     pass
