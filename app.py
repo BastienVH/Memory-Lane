@@ -2,11 +2,12 @@ from flask import Flask, redirect, render_template, request
 from os import walk
 
 app = Flask(__name__)
+app.config.from_object("config.DevelopmentConfig")
 
 @app.route('/')
 def hello():
     filenames = []
-    for dirpath, dirs, files in walk("./static/uploads"):
+    for dirpath, dirs, files in walk(FILE_UPLOADS):
         filenames.extend(files)
         break
     filenames.remove("PUT_FILES_HERE")
