@@ -6,12 +6,6 @@ from werkzeug.datastructures import  FileStorage
 app = Flask(__name__)
 app.config.from_object("config.DevelopmentConfig")
 
-
-UPLOAD_FOLDER = 'static/uploads/'
-
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.jpeg', '.png', '.gif', '.mov']
-
 @app.route('/')
 def gallery():
     filenames = []
