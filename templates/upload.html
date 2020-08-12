@@ -2,10 +2,9 @@
 {% block title %}Batch Upload{% endblock %}
 
 {% block body %}
-
-    <form action="/upload" method="post">
+    <form action="/upload" method="POST" enctype="multipart/form-data">
         <label for="files">Select files:</label>
-        <input type="file" name="files" id="file_upload" multiple>
+        <input type="file" name="file" id="file_upload" accept="image/*,video/*" multiple>
         <input type="submit">
     </form>
 {% endblock %}
