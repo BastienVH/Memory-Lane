@@ -4,6 +4,8 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 
 app = Flask(__name__)
+app.config.from_object("config.DevelopmentConfig")
+
 
 UPLOAD_FOLDER = 'static/uploads/'
 
