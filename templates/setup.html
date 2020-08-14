@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}Setup{% endblock %}
+
+{% block body %}
+<form action="/setup" method="post">
+    <div class="form-group">
+        <h2>Provide the admin emailadress</h2>
+        <input type="text" class="form-control" name="email" placeholder="email">
+    </div>
+    <button class="btn btn-primary" type="submit">Confirm</button>
+</form>
+{% endblock %}
