@@ -15,11 +15,11 @@ def setup():
         if request.method == "POST":
             # make supplied email admin
             # change SETUP_MODE to False in .env
-            fin = open(".env", "rt")
+            fin = open(".flaskenv", "rt")
             data = fin.read()
             data = data.replace('Setup_true', 'Setup_false')
             fin.close
-            fin = open(".env", "wt")
+            fin = open(".flaskenv", "wt")
             fin.write(data)
             fin.close()
             # directly set env SETUP_MODE to false
