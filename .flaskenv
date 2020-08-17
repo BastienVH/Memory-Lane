@@ -1,1 +1,1 @@
-SETUP_MODE='Setup_false'
+SETUP_MODE='Setup_true'

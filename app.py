@@ -49,3 +49,12 @@ def upload_files():
         return redirect('/')
     else:
         return render_template('upload.html')
+
+# Invite view
+@app.route('/invite', methods=['GET', 'POST'])
+def invite():
+    if request.method == 'POST':
+        # Add email addresses to db
+        return redirect('/')
+    else:
+        return render_template('invite.html')
