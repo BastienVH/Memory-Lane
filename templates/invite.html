@@ -7,8 +7,8 @@
     <div class="col-md-auto">
         <form action="/invite" method="post">
             <div class="form-group">
-                <h4>Enter the email addresses of people you want to invite:</h4>
-                <input type="email" class="form-control" name="invite-emails" id="invite-emails" multiple placeholder="emails">
+                <p>Enter the email addresses of people you want to invite, each on a seperate line:</p>
+                <textarea class="form-control" rows="5" name="email" id="invite-emails" placeholder="emails"></textarea>
             </div>
             <div class="text-center">
                 <button class="btn btn-primary" type="submit">Send invites</button>

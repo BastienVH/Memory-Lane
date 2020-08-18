@@ -2,9 +2,15 @@ from flask import Flask, redirect, render_template, request
 from os import path, walk, getenv, environ
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
+from flask_sqlalchemy import SQLAlchemy
+from config import Config, DevelopmentConfig, TestingConfig, ProductionConfig
 
 app = Flask(__name__)
 app.config.from_object("config.DevelopmentConfig")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+from models import User
 
 # Setup View (only accessible on first launch)
 @app.route('/setup', methods=['GET', 'POST'])
@@ -14,6 +20,9 @@ def setup():
     else:
         if request.method == "POST":
             # make supplied email admin
+            admin = User(request.form['username'], request.form['email'], True)
+            db.session.add(admin)
+            db.session.commit()
             # change SETUP_MODE to False in .env
             fin = open(".flaskenv", "rt")
             data = fin.read()
@@ -55,6 +64,12 @@ def upload_files():
 def invite():
     if request.method == 'POST':
         # Add email addresses to db
+        users = request.form['email'].splitlines()
+        print(users)
+        for user in users:
+            newUser = User(None, user, False)
+            db.session.add(newUser)
+        db.session.commit()
         return redirect('/')
     else:
         return render_template('invite.html')
