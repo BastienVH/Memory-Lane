@@ -4,13 +4,14 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 from flask_sqlalchemy import SQLAlchemy
 from config import Config, DevelopmentConfig, TestingConfig, ProductionConfig
+from  imagefunct import get_date
 
 app = Flask(__name__)
 app.config.from_object("config.DevelopmentConfig")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-from models import User
+from models import User, Image
 
 # Setup View (only accessible on first launch)
 @app.route('/setup', methods=['GET', 'POST'])
@@ -54,7 +55,13 @@ def upload_files():
         for uploaded_file in request.files.getlist('file'):
             if uploaded_file.filename != '':
                 filename = secure_filename(uploaded_file.filename)
-                uploaded_file.save(path.join(app.config['UPLOAD_FOLDER'], filename))
+                hashed_filename = hash(filename)
+                save_path = path.join(app.config['UPLOAD_FOLDER'], str(hashed_filename)+".jpg")
+                uploaded_file.save(save_path)
+                date_taken = get_date(save_path)
+                newImage = Image(filename, hashed_filename, date_taken)
+                db.session.add(newImage)
+        db.session.commit()
         return redirect('/')
     else:
         return render_template('upload.html')
