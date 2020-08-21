@@ -20,11 +20,13 @@ class Image(db.Model):
     orig_filename = db.Column(db.String(255))
     hashed_filename = db.Column(db.String(255), unique=True)
     date_taken = db.Column(db.DateTime)
+    thumbnail_filename = db.Column(db.String(255), unique=True)
 
-    def __init__(self, orig_filename, hashed_filename, date_taken):
+    def __init__(self, orig_filename, hashed_filename, date_taken, thumbnail_filename):
         self.orig_filename = orig_filename
         self.hashed_filename = hashed_filename
         self.date_taken = date_taken
+        self.thumbnail_filename = thumbnail_filename
     
     def __repr__(self):
         return '<image %r>' % self.orig_filename

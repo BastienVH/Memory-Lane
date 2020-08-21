@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 from flask_sqlalchemy import SQLAlchemy
 from config import Config, DevelopmentConfig, TestingConfig, ProductionConfig
-from imagefunct import get_date
+from imagefunct import get_date, generate_thumbnail
 
 app = Flask(__name__)
 app.config.from_object("config.DevelopmentConfig")
@@ -56,7 +56,8 @@ def upload_files():
                 save_path = path.join(app.config['UPLOAD_FOLDER'], str(hashed_filename)+".jpg")
                 uploaded_file.save(save_path)
                 date_taken = get_date(save_path)
-                newImage = Image(filename, hashed_filename, date_taken)
+                thumbnail_filename = generate_thumbnail(save_path)
+                newImage = Image(filename, hashed_filename, date_taken, thumbnail_filename)
                 db.session.add(newImage)
         db.session.commit()
         return redirect('/')
