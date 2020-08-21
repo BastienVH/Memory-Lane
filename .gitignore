@@ -3,4 +3,6 @@ venv/
 .vscode/
 static/uploads/*
 !static/uploads/PUT_FILES_HERE
+static/thumbnails/*
+!static/thumbnails/THUMBNAILS_GET_PUT_HERE
 .env

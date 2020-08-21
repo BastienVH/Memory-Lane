@@ -2,6 +2,8 @@ import exifread
 from datetime import datetime
 import os
 from PIL import Image
+from app import app
+from os import walk
 
 def get_date(filename):
     # read datetime from exif data of provided image
@@ -19,10 +21,19 @@ def get_date(filename):
 
 def generate_thumbnail(filename):
     # generate a thumbnail image
-    size = (200,200)
-    im = Image.open(filename)
+    size = (500,500)
+    im = Image.open(app.config['UPLOAD_FOLDER'] + filename)
     im.thumbnail(size)
     thumbnail_filename = "thumbnail_"+ filename
     im.save("./static/thumbnails/" + thumbnail_filename)
     return thumbnail_filename
     # store in static/thumbnails
+
+def scan_and_generate():
+    filenames = []
+    for dirpath, dirs, files in walk(app.config['UPLOAD_FOLDER']):
+        filenames.extend(files)
+        break
+    filenames.remove("PUT_FILES_HERE")
+    for file in filenames:
+        generate_thumbnail(file)

@@ -4,7 +4,6 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 from flask_sqlalchemy import SQLAlchemy
 from config import Config, DevelopmentConfig, TestingConfig, ProductionConfig
-from imagefunct import get_date, generate_thumbnail
 
 app = Flask(__name__)
 app.config.from_object("config.DevelopmentConfig")
@@ -12,6 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 from models import User, Image
+from imagefunct import get_date, generate_thumbnail, scan_and_generate
 
 # Setup View (only accessible on first launch)
 @app.route('/setup', methods=['GET', 'POST'])
@@ -56,7 +56,7 @@ def upload_files():
                 save_path = path.join(app.config['UPLOAD_FOLDER'], str(hashed_filename)+".jpg")
                 uploaded_file.save(save_path)
                 date_taken = get_date(save_path)
-                thumbnail_filename = generate_thumbnail(save_path)
+                thumbnail_filename = generate_thumbnail(str(hashed_filename) + ".jpg")
                 newImage = Image(filename, hashed_filename, date_taken, thumbnail_filename)
                 db.session.add(newImage)
         db.session.commit()
