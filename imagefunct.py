@@ -1,14 +1,17 @@
 import exifread
 from datetime import datetime
+import os
 
 def get_date(filename):
     # read datetime from exif data of provided image
     f = open(filename, 'rb')
     tags = exifread.process_file(f)
-    print(tags)
-    # TODO: use file DateTime if datetime original is not present
-    if not tags["EXIF DateTimeOriginal"]:
+    # Check if a date is provided inside EXIF information
+    if "EXIF DateTimeOriginal" in tags:
+        dt = tags["EXIF DateTimeOriginal"]
+    elif "DateTime" in tags:
         dt = tags["DateTime"]
-    dt = tags["EXIF DateTimeOriginal"]
-    date_object = datetime.strptime(str(dt), "%Y:%m:%d %H:%M:%S")
-    return date_object
+    else:
+        dt = os.path.getctime(filename)
+        return datetime.fromtimestamp(dt).strftime("%Y-%m-%d %H:%M:%S")
+    return datetime.strptime(str(dt), "%Y:%m:%d %H:%M:%S")
