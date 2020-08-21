@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 from flask_sqlalchemy import SQLAlchemy
 from config import Config, DevelopmentConfig, TestingConfig, ProductionConfig
-from  imagefunct import get_date
+from imagefunct import get_date
 
 app = Flask(__name__)
 app.config.from_object("config.DevelopmentConfig")
@@ -41,12 +41,9 @@ def setup():
 # Main gallery view
 @app.route('/')
 def gallery():
-    filenames = []
-    for dirpath, dirs, files in walk(app.config['UPLOAD_FOLDER']):
-        filenames.extend(files)
-        break
-    filenames.remove("PUT_FILES_HERE")
-    return render_template('index.html', filenames=filenames)
+    images = Image.query.order_by(Image.date_taken.desc()).all()
+    print(images)
+    return render_template('index.html', images=images)
 
 # Batch upload view
 @app.route('/upload', methods=["GET", "POST"])

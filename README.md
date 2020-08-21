@@ -19,7 +19,7 @@ It was made with sharing pictures of your children in mind, but can also be used
 - [ ] allow users to register an account only using an email (passwordless)
 - [ ] protect main page
 - [X] main page displays pictures from a folder, using [masonry](https://masonry.desandro.com/)
-- [ ] display pictures chronologically
+- [x] display pictures chronologically
 - [ ] allow family and friends to upload individual pictures/videos from gallery view
 - [ ] use wsgi server on own server / Heroku to host application
 
