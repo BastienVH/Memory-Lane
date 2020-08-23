@@ -16,7 +16,8 @@ It was made with sharing pictures of your children in mind, but can also be used
 ## Features
 
 ### v0.1 goals
-- [ ] allow users to register an account only using an email (passwordless)
+- [ ] allow admin to invite users via their own email address
+- [ ] allow invited users to complete registration by proivding a username and password
 - [ ] protect main page
 - [X] main page displays pictures from a folder, using [masonry](https://masonry.desandro.com/)
 - [x] display pictures chronologically
