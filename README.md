@@ -11,7 +11,7 @@ It was made with sharing pictures of your children in mind, but can also be used
 - Python
 - Flask
 - Bootstrap
-- SQLite
+- PostgreSQL
 
 ## Features
 
@@ -26,7 +26,7 @@ It was made with sharing pictures of your children in mind, but can also be used
 
 ### expansion goals
 
-- [ ] allow users to invite others to follow their gallery
+- [x] allow users to invite others to follow their gallery
 - [ ] send a notification to all users that a new picture has been uploaded
 - [ ] allow users to "heart" pictures
 - [ ] allow users to comment on pictures
