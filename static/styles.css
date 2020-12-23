@@ -21,3 +21,10 @@
   max-width: 100%;
   border-radius: 5px;
 }
+
+label {
+  margin-bottom: 0;
+}
+#files-chosen {
+  margin: 0 1rem 0 1rem;
+}

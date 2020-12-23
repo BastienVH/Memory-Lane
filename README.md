@@ -11,14 +11,13 @@ It was made with sharing pictures of your children in mind, but can also be used
 - Python
 - Flask
 - Bootstrap
-- SQLite
+- PostgreSQL
 
 ## Features
 
 ### v0.1 goals
-- [ ] allow admin to invite users via their own email address
-- [ ] allow invited users to complete registration by proivding a username and password
-- [ ] protect main page
+- [X] allow admin to invite users via their own email address
+- [X] protect main page
 - [X] main page displays pictures from a folder, using [masonry](https://masonry.desandro.com/)
 - [x] display pictures chronologically
 - [ ] allow family and friends to upload individual pictures/videos from gallery view
@@ -27,7 +26,7 @@ It was made with sharing pictures of your children in mind, but can also be used
 
 ### expansion goals
 
-- [ ] allow users to invite others to follow their gallery
+- [x] allow users to invite others to follow their gallery
 - [ ] send a notification to all users that a new picture has been uploaded
 - [ ] allow users to "heart" pictures
 - [ ] allow users to comment on pictures

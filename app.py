@@ -4,14 +4,27 @@ from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 from flask_sqlalchemy import SQLAlchemy
 from config import Config, DevelopmentConfig, TestingConfig, ProductionConfig
+from flask_security import Security, SQLAlchemyUserDatastore, login_required
+from flask_mail import Mail
 
 app = Flask(__name__)
 app.config.from_object("config.DevelopmentConfig")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECURITY_PASSWORD_SALT'] = getenv('SECURITY_PASSWORD_SALT')
+app.config['SECURITY_PASSWORDLESS'] = True
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = getenv('MAIL_PASSWORD')
+mail = Mail(app)
 db = SQLAlchemy(app)
 
-from models import User, Image
+from models import Users, Roles, Images
 from imagefunct import get_date, generate_thumbnail, scan_and_generate
+
+user_datastore = SQLAlchemyUserDatastore(db, Users, Roles)
+security = Security(app, user_datastore)
 
 # Setup View (only accessible on first launch)
 @app.route('/setup', methods=['GET', 'POST'])
@@ -21,8 +34,8 @@ def setup():
     else:
         if request.method == "POST":
             # make supplied email admin
-            admin = User(request.form['username'], request.form['email'], True)
-            db.session.add(admin)
+            # admin = Users(request.form['username'], request.form['email'], True)
+            user_datastore.create_user(username=request.form['username'] ,email=request.form['email'], password=request.form['password'])
             db.session.commit()
             # change SETUP_MODE to False in .env
             fin = open(".flaskenv", "rt")
@@ -40,8 +53,9 @@ def setup():
 
 # Main gallery view
 @app.route('/')
+@login_required
 def gallery():
-    images = Image.query.order_by(Image.date_taken.desc()).all()
+    images = Images.query.order_by(Images.date_taken.desc()).all()
     print(images)
     return render_template('index.html', images=images)
 
@@ -57,7 +71,7 @@ def upload_files():
                 uploaded_file.save(save_path)
                 date_taken = get_date(save_path)
                 thumbnail_filename = generate_thumbnail(str(hashed_filename) + ".jpg")
-                newImage = Image(filename, hashed_filename, date_taken, thumbnail_filename)
+                newImage = Images(filename, hashed_filename, date_taken, thumbnail_filename)
                 db.session.add(newImage)
         db.session.commit()
         return redirect('/')
@@ -69,11 +83,13 @@ def upload_files():
 def invite():
     if request.method == 'POST':
         # Add email addresses to db
-        users = request.form['email'].splitlines()
-        print(users)
-        for user in users:
-            newUser = User(None, user, False)
-            db.session.add(newUser)
+        useremails = request.form['email'].splitlines()
+        for useremail in useremails:
+            user_datastore.create_user(
+                email = useremail
+            )
+            # newUser = User(None, user, False)
+            # db.session.add(newUser)
         db.session.commit()
         return redirect('/')
     else:
