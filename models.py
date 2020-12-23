@@ -1,21 +1,38 @@
 from app import db
+from flask_security import UserMixin, RoleMixin
 
 # db configuration
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+roles_users_table = db.Table('roles_users',
+    db.Column('users_id', db.Integer(), db.ForeignKey('users.id')),
+    db.Column('roles_id', db.Integer(), db.ForeignKey('roles.id'))
+)
+
+class Users(db.Model, UserMixin):
+    id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(120), unique=True)
-    is_admin = db.Column(db.Boolean, default=False)
+    email = db.Column(db.String(255), unique=True)
+    password = db.Column(db.String(80))
+    active = db.Column(db.Boolean())
+    roles = db.relationship(
+        'Roles',
+        secondary=roles_users_table,
+        backref='user', lazy=True)
+    # is_admin = db.Column(db.Boolean, default=False)
 
-    def __init__(self, username, email, is_admin):
-        self.username = username
-        self.email = email
-        self.is_admin = is_admin
+    # def __init__(self, username, email, is_admin):
+    #     self.username = username
+    #     self.email = email
+    #     self.is_admin = is_admin
     
-    def __repr__(self):
-        return '<User %r>' % self.username
+    # def __repr__(self):
+    #     return '<User %r>' % self.username
 
-class Image(db.Model):
+class Roles(db.Model, RoleMixin):
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(80), unique=True)
+    description = db.Column(db.String(255))
+
+class Images(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     orig_filename = db.Column(db.String(255))
     hashed_filename = db.Column(db.String(255), unique=True)

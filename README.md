@@ -17,7 +17,7 @@ It was made with sharing pictures of your children in mind, but can also be used
 
 ### v0.1 goals
 - [ ] allow users to register an account only using an email (passwordless)
-- [ ] protect main page
+- [X] protect main page
 - [X] main page displays pictures from a folder, using [masonry](https://masonry.desandro.com/)
 - [x] display pictures chronologically
 - [ ] allow family and friends to upload individual pictures/videos from gallery view

@@ -2,9 +2,16 @@
 {% block title %}Batch Upload{% endblock %}
 
 {% block body %}
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <label for="files">Select files:</label>
-        <input type="file" name="file" id="file_upload" accept="image/*,video/*" multiple>
-        <input type="submit">
-    </form>
+<br>
+<div class="row justify-content-center">
+    <div class="col-md-auto">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="files" class="btn btn-primary" type="button">Select files</label>
+            <input type="file" name="file" id="files" accept="image/*,video/*" multiple hidden>
+            <!-- numer of files chosen -->
+            <span id="files-chosen">No file chosen</span>
+            <input type="submit" class="btn btn-primary" id="upload_files" value="Upload">
+        </form>        
+    </div>
+</div>
 {% endblock %}
