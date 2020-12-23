@@ -12,6 +12,7 @@ It was made with sharing pictures of your children in mind, but can also be used
 - Flask
 - Bootstrap
 - PostgreSQL
+- [Remix Icon](https://remixicon.com/) 
 
 ## Features
 
