@@ -12,5 +12,9 @@
     <div class="grid-item-content"><img src="static/thumbnails/{{ image.thumbnail_filename }}"></div>
   </div>
   {% endfor %}
+  <div class="floating-btn">
+    <input type="image" height="40" width="40" src="static/img/add-line.svg" class="my-float" id="single-upload-plus" onclick="singleUpload()">
+    <input type="file" accept="image/*,video/*" id="single-upload" style="display: none;" />
+  </div>
 </div>
 {% endblock %}

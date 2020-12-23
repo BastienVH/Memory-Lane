@@ -20,3 +20,8 @@ const filesChosen = document.getElementById('files-chosen');
 filesBtn.addEventListener('change', function(){
     filesChosen.textContent = files.files.length +" file(s) chosen";
 })
+
+// Single upload button
+function singleUpload() {
+    document.getElementById('single-upload').click();
+}
