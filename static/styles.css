@@ -22,6 +22,16 @@
   border-radius: 5px;
 }
 
+
+/* ---- nav styles ---- */
+nav {
+  background-color: rgb(243, 243, 243)
+}
+
+nav a {
+  border-radius: 0% !important;
+}
+
 .floating-btn {
 	position:fixed;
 	width:60px;
