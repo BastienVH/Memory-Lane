@@ -17,6 +17,10 @@ app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = getenv('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = getenv('MAIL_PASSWORD')
+# Change messages when trying to login: https://stackoverflow.com/questions/34659619/flask-security-and-bootstrap
+# These are not yet functioning:
+# app.config['USER_DOES_NOT_EXIST'] = ('If your email is present in our records, a magic link will be sent.', 'error')
+# app.config['LOGIN_EMAIL_SENT'] = ("If your email is present in our records, a magic link will be sent.", "success")
 mail = Mail(app)
 db = SQLAlchemy(app)
 
