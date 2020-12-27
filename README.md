@@ -1,20 +1,25 @@
-# CS50x final project
+# Memory Lane (my CS50x final project)
 This application is my final project for the course CS50x by Harvard.
 After submission, I will continue to work on this project to add features and other enhancements.
 
 ## Description
 Memory Lane is a self-hosted web app that allows you to create an online image gallery and securely share it with friends and family.
-No passwords are required, you only need an e-mailaddress to login.
+No passwords are required, you and your friends login using a magic link sent to your email.
 It was made with sharing pictures of your children in mind, but can also be used as regular image gallery.
 
 ## Tech stack
-- Python
-- Flask
-- Bootstrap
-- PostgreSQL
+- Language: Python
+- Framework: Flask
+- CSS framework: Bootstrap
+- Database: PostgreSQL
 - [Remix Icon](https://remixicon.com/) 
 
 ## Features
+- A setup process that runs on first launch to specify the admin user
+- Protected so only invited people can view the gallery
+- A responsive masonry-style gallery that sorts images from new to old
+- Add individual images straight from the gallery view or multiple images from the upload-page
+- Invite-page to invite multiple people at the same time
 
 ### v0.1 goals
 - [X] allow admin to invite users via their own email address
