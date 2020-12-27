@@ -21,7 +21,7 @@ It was made with sharing pictures of your children in mind, but can also be used
 - [X] protect main page
 - [X] main page displays pictures from a folder, using [masonry](https://masonry.desandro.com/)
 - [x] display pictures chronologically
-- [ ] allow family and friends to upload individual pictures/videos from gallery view
+- [X] allow family and friends to upload individual pictures/videos from gallery view
 - [ ] use wsgi server on own server / Heroku to host application
 
 
