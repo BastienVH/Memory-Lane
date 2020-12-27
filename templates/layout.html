@@ -7,7 +7,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+
     <!-- Own CSS -->
     <link href="/static/styles.css" rel="stylesheet">
 
@@ -17,6 +20,7 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
+    {% include "websitetitle.html" %}
     <nav class="nav nav-pills flex-column flex-sm-row">
       <a class="flex-sm-fill text-sm-center nav-link {% if request.path == '/' %}active{% endif %}" href="/">Gallery</a>
       <a class="flex-sm-fill text-sm-center nav-link {% if request.path == '/upload' %}active{% endif %}" href="/upload"><img height="24" width="24" src="static/img/image-add-line.svg" /> Upload</a>

@@ -1,5 +1,24 @@
+/* chosen fonts:
+font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
 html, body {
   background-color: rgb(250, 250, 250);
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.website-title {
+  text-align: center;
+  background-color: aquamarine;
+}
+
+h3 {
+  font-size: 18px;
+  color: rgb(105, 105, 105);
 }
 
 #main-view {
