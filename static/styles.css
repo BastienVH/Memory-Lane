@@ -13,7 +13,16 @@ h1, h2, h3 {
 
 .website-title {
   text-align: center;
-  background-color: aquamarine;
+  background-color:rgb(235, 255, 255);
+  padding: 10px 0 10px;
+}
+
+.website-title h1 {
+  font-size: 40px;
+}
+
+#title-icon {
+  padding-bottom: 6px;
 }
 
 h3 {
@@ -50,6 +59,7 @@ h3 {
 /* ---- nav styles ---- */
 nav {
   background-color: rgb(230, 230, 230);
+  font-family:  'Montserrat', sans-serif;
 }
 
 nav a {
@@ -62,7 +72,7 @@ nav a {
 	height:60px;
 	bottom:40px;
 	right:40px;
-	background-color: lightblue;
+	background-color: rgb(235, 255, 255);
 	border-radius:50px;
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
