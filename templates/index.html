@@ -1,6 +1,10 @@
 {% extends "layout.html" %}
 
 {% block title %}Home{% endblock %}
+{% block top %}
+{% include "_websitetitle.html" %}
+{% include "_nav.html" %}
+{% endblock %}
 {% block body %}
   <!-- add extra container element for Masonry -->
 <div class="grid">

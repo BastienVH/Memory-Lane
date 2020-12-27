@@ -20,12 +20,8 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    {% include "websitetitle.html" %}
-    <nav class="nav nav-pills flex-column flex-sm-row">
-      <a class="flex-sm-fill text-sm-center nav-link {% if request.path == '/' %}active{% endif %}" href="/"><img height="24" width="24" src="static/img/gallery-line.svg" /> Gallery</a>
-      <a class="flex-sm-fill text-sm-center nav-link {% if request.path == '/upload' %}active{% endif %}" href="/upload"><img height="24" width="24" src="static/img/image-add-line.svg" /> Upload</a>
-      <a class="flex-sm-fill text-sm-center nav-link {% if request.path == '/invite' %}active{% endif %}" href="/invite"><img height="24" width="24" src="static/img/user-add-line.svg" /> Invite</a>
-    </nav>
+    {% block top %}
+    {% endblock %}
     <div class="container-fluid" id="main-view">
       {% block body %}
       {% endblock %}
