@@ -21,6 +21,8 @@ It was made with sharing pictures of your children in mind, but can also be used
 - Add individual images straight from the gallery view or multiple images from the upload-page
 - Invite-page to invite multiple people at the same time
 
+## Roadmap
+
 ### v0.1 goals
 - [X] allow admin to invite users via their own email address
 - [X] protect main page
