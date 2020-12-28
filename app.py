@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, flash, redirect, render_template, request
 from os import path, walk, getenv, environ
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
@@ -51,7 +51,8 @@ def setup():
             fin.close()
             # directly set env SETUP_MODE to false
             environ['SETUP_MODE'] = 'Setup_false'
-            return 'posting setup'
+            flash('Setup complete. Please sign in with your email below.')
+            return redirect('/login')
         else:
             return render_template('setup.html')
 
